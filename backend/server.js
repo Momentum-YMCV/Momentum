@@ -6,7 +6,9 @@ import { checkInForm, aiDailyPlan } from './controllers/userCheckInController.js
 
 dotenv.config();
 
-mongoose.connect('mongodb://localhost:27017/MOMENTUM');
+mongoose.connect('mongodb://localhost:27017/MOMENTUM')
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 const app = express();
 const PORT = 3000;
