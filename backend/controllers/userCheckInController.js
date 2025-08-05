@@ -9,8 +9,8 @@ const openAi = new OpenAI({ apiKey: OPEN_AI_KEY });
 export const checkInForm = async (req, res, next) => {
   try {
     const { mood, goal, challenge } = req.body;
-    const userInput = await UserInput.create({ mood, goal, challenge });
-    res.locals.userInput = userInput;
+    const userCheckIn = await UserCheckIn.create({ mood, goal, challenge });
+    res.locals.userCheckIn = userCheckIn;
     return next();
   } catch (error) {
     console.error('Error capturing daily check-in:', error);
@@ -20,7 +20,7 @@ export const checkInForm = async (req, res, next) => {
 
 export const aiDailyPlan = async (req, res, next) => {
   try {
-    const { userInput } = res.locals;
+    const { userCheckIn } = res.locals;
     const response = await openAi.chat.completions.create({
       model: 'gpt-4o',
       messages: [
@@ -31,9 +31,9 @@ export const aiDailyPlan = async (req, res, next) => {
         },
         {
           role: 'user',
-          content: `Energy Level ${userInput.mood}
-										Top Goal ${userInput.goal}
-										Current Challenge ${userInput.challenge}
+          content: `Energy Level ${userCheckIn.mood}
+										Top Goal ${userCheckIn.goal}
+										Current Challenge ${userCheckIn.challenge}
 										
 										Please structure your response like this 
 										- Step 1: ...
@@ -54,6 +54,8 @@ export const aiDailyPlan = async (req, res, next) => {
 			//challenge,
 			//planText: response.choices[0].message.content
 		//})
-		
-  } catch (error) {}
+		return next()
+  } catch (error) {
+		console.log(error)
+	}
 };
