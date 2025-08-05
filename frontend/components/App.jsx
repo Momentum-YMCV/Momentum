@@ -8,16 +8,14 @@ function App() {
  
 
   return (
-    
     <div>
       <NavBar />
         <Routes>
-    //     <Route path="/" element={<CheckinForm/>} />
-    //     <Route path="/login" element={<Signin />} />
-    //     <Route path="/checkin" element={<CheckinForm />} />
-    //   </Routes> 
+          <Route path="/" element={<CheckinForm/>} />
+          <Route path="/signup" element={<Signin />} />
+          <Route path="/home" element={<CheckinForm />} />
+      </Routes> 
     </div>
-   
   );
 }
 

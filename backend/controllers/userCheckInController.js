@@ -1,8 +1,8 @@
-import UserCheckIn from '..models/userCheckInModel.js';
+import UserCheckIn from '../models/userCheckInModel.js';
 import OpenAI from 'openai';
 
 const OPEN_AI_KEY =
-  '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';
+  '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';
 
 const openAi = new OpenAI({ apiKey: OPEN_AI_KEY });
 
@@ -45,17 +45,11 @@ export const aiDailyPlan = async (req, res, next) => {
       ],
     });
 
-		res.locals.response = response.choices[0].message.content
+		res.locals.response = [response.choices[0].message.content]
+		return next();
 
-		//const dailyPlan = await dailyPlan.create({
-			//user: req.user.id,
-			//mood,
-			//goal,
-			//challenge,
-			//planText: response.choices[0].message.content
-		//})
-		return next()
   } catch (error) {
-		console.log(error)
+    console.log(error)
+    return next(error)	
 	}
 };
