@@ -1,0 +1,12 @@
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+input, button {
+  margin: 8px;
+  padding: 10px;
+  width: 250px;
+}

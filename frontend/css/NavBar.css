@@ -1,0 +1,19 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-buttons{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+
+}
+
+#jobTracker-button,
+#signup-button,
+#login-button {
+    text-decoration: none;
+    
+}
