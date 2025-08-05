@@ -2,7 +2,7 @@ import UserCheckIn from '../models/userCheckInModel.js';
 import OpenAI from 'openai';
 
 const OPEN_AI_KEY =
-  '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';
+  '';
 
 const openAi = new OpenAI({ apiKey: OPEN_AI_KEY });
 
