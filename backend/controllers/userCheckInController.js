@@ -45,11 +45,10 @@ export const aiDailyPlan = async (req, res, next) => {
       ],
     });
 
-		res.locals.response = [response.choices[0].message.content]
-		return next();
-
+    res.locals.response = [response.choices[0].message.content];
+    return next();
   } catch (error) {
-    console.log(error)
-    return next(error)	
-	}
+    console.log(error);
+    return next(error);
+  }
 };
