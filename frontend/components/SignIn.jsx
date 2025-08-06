@@ -44,6 +44,10 @@ function Signin() {
                     console.log('Login successful');
                     const userData = await response.json();
                     localStorage.setItem('user', JSON.stringify(userData));
+                    
+                    // Dispatch custom event to update NavBar
+                    window.dispatchEvent(new Event('userLoggedIn'));
+                    
                     navigate('/home'); // Navigate to home page
                 }
             }
@@ -52,10 +56,11 @@ function Signin() {
         }
     };
     return (
-         <div className="signin-container">
-        <form onSubmit={handleSubmit}>
-            <h2>{isSignUp ? 'Sign Up' : 'Log In'}</h2>
+         <div id="signin-container" >
+        <form id="signin-form" onSubmit={handleSubmit}>
+            <h2 id="signin-title">{isSignUp ? 'Sign Up' : 'Log In'}</h2>
                 <input 
+                    id="email-input"
                     type="email" 
                     placeholder="Email address" 
                     value={email} 
@@ -64,6 +69,7 @@ function Signin() {
                     />
                     {isSignUp && (
                         <input
+                    id="username-input"
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -72,15 +78,17 @@ function Signin() {
                 />
                     )}
                 <input
+                    id="password-input"
                     type="password"
                     placeholder="Password..."
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type = "submit">{isSignUp ? 'Sign Up' : 'Log In'}</button>
-                <p>
+                <button id="signin-submit-button" type="submit">{isSignUp ? 'Sign Up' : 'Log In'}</button>
+                <p id="signin-toggle-text">
                 {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
                 <button 
+                    id="signin-toggle-button"
                     type="button" 
                     onClick={() => setIsSignUp(!isSignUp)}
                     style={{ background: 'none', border: 'none', color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}
