@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+#checkin-form-page {
+  min-height: 80vh;
+  background-image: 
+      radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.3) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(160, 82, 45, 0.4) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 50% 50%, rgba(205, 133, 63, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px, 70px 70px, 35px 35px;
+  padding: 2rem 0;
+}
+
+#checkin-form-container {
+  max-width: 850px; /* Slightly reduced from 900px */
+  margin: 1.8rem auto;
+  font-family: 'Patrick Hand', cursive, Arial, sans-serif; /* casual font */
+  background: #fff9c4; /* Light cork-like background */
+  padding: 2.7rem; /* Slightly reduced from 3rem */
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative; /* This is needed for ::before and ::after positioning */
+  z-index: 1; /* Ensure it's above any page-level backgrounds */
+}
+
+#checkin-form-container::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 15%;
+  width: 12px;
+  height: 12px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 2px 2px 3px rgba(255,255,255,0.4),
+    0 3px 6px rgba(0,0,0,0.4);
+}
+
+#checkin-form-container::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 15%;
+  width: 12px;
+  height: 12px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 2px 2px 3px rgba(255,255,255,0.4),
+    0 3px 6px rgba(0,0,0,0.4);
+}
+#checkin-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem; /* Slightly reduced from 2rem */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#checkin-title {
+  flex-basis: 100%;
+  background: #fff176; /* pastel yellow sticky */
+  padding: 1.3rem 1.8rem; /* Slightly reduced padding */
+  border-radius: 12px;
+  box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+  font-size: 2.0rem; /* Slightly reduced from 2.2rem */
+  user-select: none;
+  transform: rotate(-2deg);
+  margin-bottom: 1.8rem; /* Slightly reduced margin */
+  position: relative; /* Added for thumbtack */
+}
+
+/* Thumbtack for title */
+#checkin-title::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 20%;
+  width: 12px;
+  height: 12px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 2px 2px 3px rgba(255,255,255,0.4),
+    0 3px 6px rgba(0,0,0,0.4);
+}
+
+#form-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* Slightly reduced gap */
+  width: 100%;
+  max-width: 480px; /* Slightly reduced max-width */
+}
+
+
+
+#mood-input,
+#goal-input,
+#challenge-input {
+  background: #ffcc80; /* pastel orange */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px rgba(0,0,0,0.15);
+  padding: 1.1rem; /* Slightly reduced padding */
+  font-size: 1.1rem; /* Slightly reduced font */
+  font-family: inherit;
+  outline-offset: 3px;
+  transform: rotate(1deg);
+  transition: all 0.3s ease; /* transition for all properties including transform */
+  position: relative; /* Added for thumbtacks */
+}
+
+/* Thumbtacks for input fields */
+#mood-input::before,
+#goal-input::before,
+#challenge-input::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 15%;
+  width: 8px;
+  height: 8px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 1px 1px 2px rgba(255,255,255,0.3),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+#mood-input:focus,
+#goal-input:focus,
+#challenge-input:focus {
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.35);
+  background: #ffe082; /* lighter on focus */
+  transform: rotate(0deg) scale(1.02); /* straighten and slightly scale on focus */
+  outline: none;
+}
+
+#generate-plan-button {
+  background: #aed581; /* pastel green */
+  color: #2e7d32; /* dark green text for contrast */
+  border: none;
+  border-radius: 12px;
+  padding: 1.1rem 2.2rem; /* Slightly reduced padding */
+  font-size: 1.2rem; /* Slightly reduced font */
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 3px 4px 7px rgba(0,0,0,0.3);
+  transform: rotate(-1.5deg);
+  transition: all 0.3s ease; /* Changed to 'all' to include transform */
+  align-self: center;
+  margin-top: 1.3rem; /* Slightly reduced margin */
+  position: relative; /* Added for thumbtacks */
+}
+
+
+
+#generate-plan-button:hover {
+  background: #9ccc65;
+  transform: rotate(0deg) scale(1.05); /* straighten and scale on hover */
+  box-shadow: 4px 5px 10px rgba(0,0,0,0.4); /* enhanced shadow on hover */
+}
+
+#ai-plan-response {
+  margin-top: 2.7rem; /* Slightly reduced margin */
+  background: #f48fb1; /* pastel pink */
+  padding: 1.8rem 2.2rem; /* Slightly reduced padding */
+  border-radius: 15px;
+  box-shadow: 4px 5px 10px rgba(0,0,0,0.25);
+  font-size: 1.2rem; /* Slightly reduced font */
+  white-space: pre-wrap; /* keep line breaks */
+  transform: rotate(2deg);
+  max-width: 750px; /* Slightly reduced max-width */
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Patrick Hand', cursive, Arial, sans-serif;
+  position: relative; /* Added for thumbtacks */
+}
+
+#ai-plan-text {
+  margin: 0;
+  color: #4a148c; /* dark purple text for contrast */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#response-title {
+  background: #fff176;
+  padding: 0.9rem; /* Slightly reduced padding */
+  border-radius: 10px;
+  transform: rotate(-1deg);
+  box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+  display: inline-block;
+  margin: 0 auto 1.8rem; /* Slightly reduced margin */
+  text-align: center;
+  color: #4a148c;
+  position: relative; /* Added for thumbtacks */
+}
+
+/* Thumbtack for response title */
+#response-title::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 15%;
+  width: 8px;
+  height: 8px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 1px 1px 2px rgba(255,255,255,0.3),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+
+/* New check-in button styling */
+#new-checkin-button {
+  background: #4fc3f7; /* pastel blue */
+  color: #01579b; /* dark blue text for contrast */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px rgba(0,0,0,0.15);
+  padding: 1.1rem 2.7rem; /* Slightly reduced padding */
+  font-size: 1.1rem; /* Slightly reduced font */
+  font-family: inherit;
+  cursor: pointer;
+  transform: rotate(-1deg);
+  transition: all 0.3s ease;
+  position: relative; /* Added for thumbtacks */
+}
+
+/* Thumbtack for new check-in button */
+
+
+#new-checkin-button:hover {
+  transform: rotate(0deg) scale(1.05);
+  background: #29b6f6;
+}
+
+/* Loading spinner container */
+#loading-spinner {
+  text-align: center;
+  margin-top: 1.8rem; /* Slightly reduced margin */
+  padding: 1.8rem; /* Slightly reduced padding */
+  background: #e1bee7;
+  border-radius: 15px;
+  transform: rotate(1deg);
+  box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Thumbtack for loading spinner */
+#loading-spinner::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 25%;
+  width: 8px;
+  height: 8px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 
+    inset 1px 1px 2px rgba(255,255,255,0.3),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Spinner circle */
+#spinner-circle {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3e5f5;
+  border-top: 4px solid #9c27b0;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+/* Loading text */
+#loading-text {
+  color: #4a148c;
+  font-size: 1.1rem; /* Slightly reduced font */
+  margin: 0;
+}

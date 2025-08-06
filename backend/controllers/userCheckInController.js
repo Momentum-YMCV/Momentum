@@ -34,6 +34,7 @@ export const aiDailyPlan = async (req, res, next) => {
 										Top Goal ${userCheckIn.goal}
 										Current Challenge ${userCheckIn.challenge}
 										
+                    Please provide your response in plain text format without any markdown formatting, bullet points, or special characters. Use simple paragraphs separated by line breaks.
 										Please structure your response like this 
 										- Step 1: ...
 										- Step 2: ...

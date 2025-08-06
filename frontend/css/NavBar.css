@@ -1,19 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 #navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(45deg, #8b4513, #a0522d, #cd853f); /* cork board colors */
+    padding: 1.5rem 3rem; /* Increased padding for desktop */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #654321;
+    font-family: 'Patrick Hand', cursive, Arial, sans-serif;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#title-with-image {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#logo-image {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+#logo-text h1, #logo-text h3 {
+    margin: 0;
+    color: #2c1810;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+#logo-text h1 {
+    font-size: 2.8rem; /* Increased for desktop */
+    font-weight: bold;
+}
+
+#logo-text h3 {
+    font-size: 1.2rem; /* Increased for desktop */
+    font-style: italic;
+    opacity: 0.8;
 }
 
 #nav-buttons{
    display: flex;
    align-items: center;
-   gap: 20px;
-
+   gap: 30px; /* Increased gap for desktop */
 }
 
 #jobTracker-button,
+#checkin-button,
 #signup-button,
-#login-button {
+#login-button,
+#logout-button {
     text-decoration: none;
-    
+    background: #fff176; /* yellow sticky note */
+    color: #333;
+    padding: 1rem 1.5rem; /* Increased padding for desktop */
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.1rem; /* Increased font size */
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.3);
+    transform: rotate(-1deg);
+    transition: all 0.2s ease;
+    border: 1px solid #f9f6b3;
+    position: relative;
+    cursor: pointer;
+}
+
+#jobTracker-button:hover,
+#checkin-button:hover,
+#signup-button:hover,
+#login-button:hover,
+#logout-button:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 3px 4px 8px rgba(0,0,0,0.4);
+    background: #fff59d;
+}
+
+/* Add thumbtack effect */
+#jobTracker-button::before,
+#checkin-button::before,
+#signup-button::before,
+#login-button::before,
+#logout-button::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #ff5722;
+    border-radius: 50%;
+    box-shadow: 
+        inset 1px 1px 2px rgba(255,255,255,0.3),
+        0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Alternate colors for variety */
+#checkin-button {
+    background: #ffcc80; /* orange */
+    transform: rotate(1.5deg);
+}
+
+#checkin-button:hover {
+    background: #ffb74d;
+}
+
+/* Logout button styling */
+#logout-button {
+    background: #f48fb1; /* pink */
+    transform: rotate(1deg);
+    border: none;
+    margin-left: 0.5rem;
+}
+
+#logout-button:hover {
+    background: #f06292;
 }
