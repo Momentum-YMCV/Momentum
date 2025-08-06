@@ -1,10 +1,9 @@
 import UserCheckIn from '../models/userCheckInModel.js';
 import OpenAI from 'openai';
+import dotenv from 'dotenv';
 
-const OPEN_AI_KEY =
-  '';
-
-const openAi = new OpenAI({ apiKey: OPEN_AI_KEY });
+dotenv.config();
+const openAi = new OpenAI(process.env.OPENAI_API_KEY);
 
 export const checkInForm = async (req, res, next) => {
   try {
